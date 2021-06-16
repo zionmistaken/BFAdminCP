@@ -9,7 +9,7 @@ FROM   adkats_records_main t1
              WHERE  command_type IN ( 18, 20 )
                 AND record_time >= Date_sub(UTC_TIMESTAMP(), INTERVAL 2 week)
              GROUP  BY target_id
-             HAVING `total` >= 5
+             HAVING `total` >= 3
              ORDER  BY recent DESC) t2
          ON t1.target_id = t2.target_id
             AND t1.record_time = t2.recent
